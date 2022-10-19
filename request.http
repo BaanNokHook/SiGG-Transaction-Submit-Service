@@ -1,0 +1,18 @@
+### sendrawtransaction
+POST http://guest:guest@127.0.0.1:18927
+content-type: application/json
+
+{
+    "id":"1",
+    "jsonrpc":"2.0",
+    "method": "sendrawtransaction",
+    "params": ["022000000011897a817d02b5d0ba4ef0ea4648c9c5532370260b3138a0f7b608c9c977cf972000000006b483045022100bc038711dab5d219cdef8c3efd1f64694873722c0abb3e5395100e43763a90de022079a94091adb771177c95b505d91037518e52e45977862f2c126b635c6c1ef7690121021e3814727b62bb0a3be4ec4faa17fb87504bd3922bffbc8db0c81c5496d467b3ffffffff0200e1f505000000001976a914d57571ee8f1d9bfc741b10e2dfd38bbe6f712cee88ac7c9f8042170000001976a91458d70e440419c1f564f24232f924cf93dc93cfc688ac00000000"]
+}
+
+###
+POST http://guest:guest@127.0.0.1:18927
+content-type: application/json
+
+{"jsonrpc":"2.0","method":"getaddressutxos","params":[{ "addresses": ["TJ4x6GqR97jgjm6qL5XXEykvbFVR33tfmN"]}],"id":0}
+{"jsonrpc":"2.0","method":"getaddressutxos","params":["{ \"addresses\": [\"TJ4x6GqR97jgjm6qL5XXEykvbFVR33tfmN\"]}"],"id":0}
+

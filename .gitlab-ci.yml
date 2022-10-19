@@ -1,0 +1,26 @@
+stages:
+  - build
+  - test
+  - release
+
+build:
+  stage: build
+  image: golang:1.18-alpine
+  script: 
+    - go mod download
+    - go build ./cmd/app
+
+release:
+  stage: release
+  image: docker:latest
+  services:
+    - docker:dind
+  dependencies:
+    - build
+  script:
+    - echo $CI_REGISTRY_PASSWORD
+    - echo $CI_REGISTRY_USER
+    - echo $CI_REGISTRY_IMAGE
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg 8080 --pull -t $CI_REGISTRY_IMAGE .
+    - docker push $CI_REGISTRY_IMAGE

@@ -1,0 +1,1 @@
+export RMQ_URL="amqp://guest:guest@20.191.147.183:5672"
